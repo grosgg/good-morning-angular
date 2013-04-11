@@ -1,10 +1,5 @@
 'use strict';
 
-angular.module('goodMorningAngularApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+function MainCtrl($scope, StickyBoard) {
+    $scope.sticky = StickyBoard.query();
+  }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('goodMorningAngularApp', [])
+angular.module('goodMorningAngularApp', ['stickyServices'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
