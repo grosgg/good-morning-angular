@@ -4,3 +4,5 @@ dist
 .sass-cache
 app/components
 *.swp
+karma.conf.js
+karma-e2e.conf.js
