@@ -1,1 +1,0 @@
-karma-e2e.workhp.conf.js
