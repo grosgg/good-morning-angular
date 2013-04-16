@@ -1,7 +1,7 @@
 'use strict';
 
 function MainCtrl($scope, StickyBoard, Bookmark) {
-    $scope.sticky = StickyBoard.query();
+    $scope.sticky = StickyBoard.get();
     $scope.bookmarks = Bookmark.query();
     $scope.orderBookmarks = 'id';
 }
