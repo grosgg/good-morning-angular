@@ -4,8 +4,8 @@ angular.module('goodMorningAngularApp', ['authServices', 'stickyServices', 'book
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/preauth.html',
+        controller: 'PreAuthCtrl'
       })
       .when('/weather', {
         templateUrl: 'views/weather.html',
