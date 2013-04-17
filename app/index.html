@@ -31,7 +31,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="brand" href="#">Good Morning!</a>
-                <div class="nav-collapse collapse">
+                <div ng-controller='AuthCtrl' class="nav-collapse collapse">
+                    <form class="navbar-form pull-right">
+                        <input ng-model="email" class="span2" type="text" placeholder="Email">
+                        <input ng-model="password" class="span2" type="password" placeholder="Password">
+                        <button ng-click="signin()" type="submit" class="btn">Sign in</button>
+                    </form>
                     <p class="navbar-text pull-right">
                     Logged in as <a href="#" class="navbar-link">Username</a>
                     </p>
@@ -41,6 +46,9 @@
                         <li><a href="/news/">News</a></li>
                         <li><a href="/bookmarks/">Bookmarks</a></li>
                     </ul>
+email: {{ email }}
+password: {{ password }}
+authToken: {{ authToken }}
                 </div><!--/.nav-collapse -->
             </div>
         </div>
@@ -56,6 +64,7 @@
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/auth.js"></script>
     <script src="scripts/services/sticky.js"></script>
     <script src="scripts/services/bookmark.js"></script>
     <!-- endbuild -->

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('goodMorningAngularApp', ['stickyServices', 'bookmarkServices'])
+angular.module('goodMorningAngularApp', ['authServices', 'stickyServices', 'bookmarkServices'])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
