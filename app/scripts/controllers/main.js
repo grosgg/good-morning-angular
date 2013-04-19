@@ -3,31 +3,26 @@
 goodMorningAngularApp.controller("PreAuthCtrl", function($scope) {
 });
 
-goodMorningAngularApp.controller("AuthCtrl", function($scope, $location, $cookieStore, Auth) {
+goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $location, $cookieStore, Auth) {
     $scope.email = 'marin.jeremy@gmail.com';
     $scope.password = 'sabusushi';
-
-    if ($scope.authToken = $cookieStore.get('authToken')) {
-        $scope.logged = true;
-    } else {
-        $scope.logged = false;
-    }
 
     $scope.signin = function(){
         var response = Auth.signin({email:this.email, password:this.password}, function() {
             $cookieStore.put('authToken', response.authentication_token);
             $scope.authToken = response.authentication_token;
             $scope.username = response.user.email;
-            $scope.logged = true;
+            $rootScope.logged = true;
             console.log('cookie after signin: '+$cookieStore.get('authToken'));
             $location.path('/home/');
         });
     }
 
     $scope.signout = function(){
-        var response = Auth.signout({}, function() {
+        var token = $cookieStore.get('authToken');
+        var response = Auth.signout({authToken:token}, function() {
             $cookieStore.remove('authToken');
-            $scope.logged = false;
+            $rootScope.logged = false;
             console.log('cookie after signout: '+$cookieStore.get('authToken'));
             $location.path('/');
         });
@@ -43,11 +38,13 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
     $scope.orderBookmarks = 'id';
 
     $scope.pushStickyboard = function(){
-        var response = StickyBoard.push({content:this.sticky.content});
+        token = $cookieStore.get('authToken');
+        var response = StickyBoard.push({authToken:token}, {content:this.sticky.content});
     }
 
     $scope.pullStickyboard = function(){
-        $scope.sticky = StickyBoard.pull();
+        token = $cookieStore.get('authToken');
+        $scope.sticky = StickyBoard.pull({authToken:token});
     }
 });
 

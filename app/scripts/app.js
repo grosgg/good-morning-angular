@@ -31,3 +31,35 @@ goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
+goodMorningAngularApp.factory('goodMorningInterceptor', function ($q, $location, $rootScope, $cookieStore) {
+    return function (promise) {
+
+        var success = function(response) {
+            console.log('promise success');
+            return response;
+        };
+
+        var fail = function(response) {
+            console.log('promise fail');
+            $cookieStore.remove('authToken');
+            $rootScope.logged = false;
+            $location.path('/');
+        };
+
+        return promise.then(success,fail);
+    };
+});
+
+goodMorningAngularApp.config(function ($httpProvider) {
+    $httpProvider.responseInterceptors.push('goodMorningInterceptor');
+});
+
+goodMorningAngularApp.run(function($rootScope, $cookieStore) {
+    if ($rootScope.authToken = $cookieStore.get('authToken')) {
+        $rootScope.logged = true;
+    } else {
+        $rootScope.logged = false;
+    }
+
+});
+
