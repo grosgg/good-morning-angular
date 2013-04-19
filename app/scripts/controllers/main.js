@@ -1,13 +1,17 @@
 'use strict';
 
-function PreAuthCtrl($scope) {
-}
+goodMorningAngularApp.controller("PreAuthCtrl", function($scope) {
+});
 
-function AuthCtrl($scope, $location, $cookieStore, Auth) {
-    $scope.logged = false;
+goodMorningAngularApp.controller("AuthCtrl", function($scope, $location, $cookieStore, Auth) {
     $scope.email = 'marin.jeremy@gmail.com';
     $scope.password = 'sabusushi';
-    $scope.authToken = 'bidon';
+
+    if ($scope.authToken = $cookieStore.get('authToken')) {
+        $scope.logged = true;
+    } else {
+        $scope.logged = false;
+    }
 
     $scope.signin = function(){
         var response = Auth.signin({email:this.email, password:this.password}, function() {
@@ -22,14 +26,15 @@ function AuthCtrl($scope, $location, $cookieStore, Auth) {
     $scope.signout = function(){
         var response = Auth.signout({}, function() {
             $cookieStore.remove('authToken');
+            $scope.logged = false;
             $location.path('/');
         });
     }
-}
+});
 
-function MainCtrl($scope, StickyBoard, Bookmark) {
-    $scope.sticky = StickyBoard.pull();
+goodMorningAngularApp.controller("MainCtrl", function($scope, StickyBoard, Bookmark) {
     $scope.bookmarks = Bookmark.query();
+    $scope.sticky = StickyBoard.pull();
     $scope.orderBookmarks = 'id';
 
     $scope.pushStickyboard = function(){
@@ -39,14 +44,14 @@ function MainCtrl($scope, StickyBoard, Bookmark) {
     $scope.pullStickyboard = function(){
         $scope.sticky = StickyBoard.pull();
     }
-}
+});
 
-function WeatherCtrl($scope) {
-}
+goodMorningAngularApp.controller("WeatherCtrl", function($scope) {
+});
 
-function NewsCtrl($scope) {
-}
+goodMorningAngularApp.controller("NewsCtrl", function($scope) {
+});
 
-function BookmarksCtrl($scope) {
-}
+goodMorningAngularApp.controller("BookmarksCtrl", function($scope) {
+});
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stickyServices', ['ngResource'])
+angular.module('stickyServices', ['ngResource', 'ngCookies'])
 .factory('StickyBoard', function ($resource, $cookieStore) {
     var token = $cookieStore.get('authToken');
     return $resource(
