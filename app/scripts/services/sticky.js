@@ -5,7 +5,13 @@ angular.module('stickyServices', ['ngResource'])
     var token = $cookieStore.get('authToken');
     return $resource(
         'http://localhost\\:3000/stickyboards/:stickyId.json?authentication_token=:authToken',
-        {stickyId:1, authToken:token },
-        {}
+        {
+            stickyId:1,
+            authToken:token
+        },
+        {
+            'push': {method:'PUT'},
+            'pull': {method:'GET'}
+        }
     );
 });

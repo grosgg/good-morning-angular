@@ -31,22 +31,25 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="brand" href="#">Good Morning!</a>
-                <div ng-controller='AuthCtrl' class="nav-collapse collapse">
-                    <form class="navbar-form pull-right">
-                        <input ng-model="email" class="span2" type="text" placeholder="Email">
-                        <input ng-model="password" class="span2" type="password" placeholder="Password">
-                        <button ng-click="signin()" type="submit" class="btn">Sign in</button>
-                    </form>
-                    <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">Username</a>
-                    </p>
+                <div class="nav-collapse collapse">
+                    <div ng-controller='AuthCtrl'>
+                        <form ng-hide="logged" class="navbar-form pull-right">
+                            <input ng-model="email" class="span2" type="text" placeholder="Email">
+                            <input ng-model="password" class="span2" type="password" placeholder="Password">
+                            <button ng-click="signin()" type="submit" class="btn">Sign in</button>
+                        </form>
+                        <!--<a ng-show="logged" ng-click="signout()" class="btn pull-right">Sign Out</a>-->
+                        <p ng-show="logged" class="navbar-text pull-right">
+                            authToken: {{ authToken }} | Logged in as {{ username }} 
+                            <a ng-click="signout()" href="#">Sign Out</a>
+                        </p>
+                    </div>
                     <ul class="nav">
                         <li class="active"><a href="/home/">Home</a></li>
                         <li><a href="/weather/">Weather</a></li>
                         <li><a href="/news/">News</a></li>
                         <li><a href="/bookmarks/">Bookmarks</a></li>
                     </ul>
-authToken: {{ authToken }}
                 </div><!--/.nav-collapse -->
             </div>
         </div>
