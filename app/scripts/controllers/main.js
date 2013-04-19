@@ -19,6 +19,7 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $location, $cookie
             $scope.authToken = response.authentication_token;
             $scope.username = response.user.email;
             $scope.logged = true;
+            console.log('cookie after signin: '+$cookieStore.get('authToken'));
             $location.path('/home/');
         });
     }
@@ -27,14 +28,18 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $location, $cookie
         var response = Auth.signout({}, function() {
             $cookieStore.remove('authToken');
             $scope.logged = false;
+            console.log('cookie after signout: '+$cookieStore.get('authToken'));
             $location.path('/');
         });
     }
 });
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, StickyBoard, Bookmark) {
-    $scope.bookmarks = Bookmark.query();
-    $scope.sticky = StickyBoard.pull();
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark) {
+    var token = $cookieStore.get('authToken');
+    console.log('cookie before fetching: '+token);
+
+    $scope.bookmarks = Bookmark.query({authToken:token});
+    $scope.sticky = StickyBoard.pull({authToken:token});
     $scope.orderBookmarks = 'id';
 
     $scope.pushStickyboard = function(){
