@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('weatherServices', ['ngResource'])
-.factory('weather', function ($resource) {
-    return $resource('resources/sticky.json', {}, {
-        query: {method:'GET', params:{}}
-    });
+angular.module('weatherKeyServices', ['ngResource'])
+.factory('WeatherKey', function ($resource) {
+
+    return $resource(
+        'http://localhost\\:3000/weatherkeys.json?authentication_token=:authToken',
+        {},
+        {}
+    );
 });
