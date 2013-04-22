@@ -10,8 +10,7 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $locat
     $scope.signin = function(){
         var responseAuth = Auth.signin({email:this.email, password:this.password}, function() {
 
-            var responseWeatherKey = WeatherKey.query({authToken:responseAuth.authentication_token}, function() {
-                console.log('WK: '+responseWeatherKey.api_key);
+            var responseWeatherKey = WeatherKey.get({authToken:responseAuth.authentication_token}, function() {
                 $cookieStore.put('authToken', responseAuth.authentication_token);
                 $cookieStore.put('weatherKey', responseWeatherKey.api_key);
 
@@ -39,14 +38,46 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $locat
     }
 });
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, $http, StickyBoard, Bookmark, WeatherReport) {
     var token = $cookieStore.get('authToken');
+    var key = $cookieStore.get('weatherKey');
     console.log('cookie before fetching: '+token);
 
     $scope.bookmarks = Bookmark.query({authToken:token});
     $scope.sticky = StickyBoard.pull({authToken:token});
     $scope.orderBookmarks = 'id';
-    $scope.weatherKey = $cookieStore.get('weatherKey');
+    $scope.weatherKey = key;
+
+    //delete $http.defaults.headers.common['X-Requested-With'];
+    /*
+    $http({
+        method:'JSONP',
+        url:'http://api.worldweatheronline.com/free/v1/weather.ashx',
+        headers: {
+            //'X-Requested-With':'XMLHttpRequest'
+        },
+        params: {
+            key:key,
+            q:'Paris',
+            date:'today',
+            num_of_days:0,
+            fx:'no',
+            cc:'yes',
+            format:'json'
+        }
+    })
+    .success(function(data) {
+        $scope.weatherReport = data;
+    })
+    .error(function() {
+        $scope.weatherReport = 'merde';
+    });
+    */
+
+    //delete $http.defaults.headers.common['X-Requested-With'];
+    WeatherReport.report({key:key}, function(wr){
+        console.log(wr);
+    });
 
     $scope.pushStickyboard = function(){
         token = $cookieStore.get('authToken');
