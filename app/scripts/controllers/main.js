@@ -48,35 +48,8 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, $htt
     $scope.orderBookmarks = 'id';
     $scope.weatherKey = key;
 
-    //delete $http.defaults.headers.common['X-Requested-With'];
-    /*
-    $http({
-        method:'JSONP',
-        url:'http://api.worldweatheronline.com/free/v1/weather.ashx',
-        headers: {
-            //'X-Requested-With':'XMLHttpRequest'
-        },
-        params: {
-            key:key,
-            q:'Paris',
-            date:'today',
-            num_of_days:0,
-            fx:'no',
-            cc:'yes',
-            format:'json'
-        }
-    })
-    .success(function(data) {
-        $scope.weatherReport = data;
-    })
-    .error(function() {
-        $scope.weatherReport = 'merde';
-    });
-    */
-
-    //delete $http.defaults.headers.common['X-Requested-With'];
     WeatherReport.report({key:key}, function(wr){
-        console.log(wr);
+        $scope.weatherReport = wr.data.current_condition[0];
     });
 
     $scope.pushStickyboard = function(){
@@ -98,4 +71,5 @@ goodMorningAngularApp.controller("NewsCtrl", function($scope) {
 
 goodMorningAngularApp.controller("BookmarksCtrl", function($scope) {
 });
+
 

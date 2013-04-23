@@ -51,6 +51,10 @@ goodMorningAngularApp.factory('goodMorningInterceptor', function ($q, $location,
 });
 
 goodMorningAngularApp.config(function ($httpProvider) {
+    //$httpProvider.defaults.headers.common['X-Requested-With'] = '';
+    //console.log('httpP: '+$httpProvider);
+    //delete $httpProvider.defaults.headers.common["X-Requested-With"]
+    //console.log('httpP: '+$httpProvider);
     $httpProvider.responseInterceptors.push('goodMorningInterceptor');
 });
 

@@ -3,7 +3,6 @@
 angular.module('weatherReportServices', ['ngResource'])
 .factory('WeatherReport', function ($resource) {
 
-    //delete $http.defaults.headers.common['X-Requested-With'];
     return $resource(
         'http://api.worldweatheronline.com/free/v1/weather.ashx'
             +'?key=:key'
@@ -12,7 +11,8 @@ angular.module('weatherReportServices', ['ngResource'])
             +'&num_of_days=:num_of_days'
             +'&fx=:fx'
             +'&cc=:cc'
-            +'&format=json',
+            +'&format=json'
+            +'&callback=JSON_CALLBACK',
         {
             query:'Paris',
             date:'today',
@@ -21,7 +21,7 @@ angular.module('weatherReportServices', ['ngResource'])
             cc:'yes'
         },
         {
-            'report': {method:'JSONP', isArray:true}
+            'report': {method:'JSONP', isArray:false}
         }
     );
 });
