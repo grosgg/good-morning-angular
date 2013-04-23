@@ -1,0 +1,290 @@
+[
+{
+    "WeatherCode": "395",
+    "Condition": "Moderate or heavy snow in area with thunder",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "392",
+    "Condition": "Patchy light snow in area with thunder",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "389",
+    "Condition": "Moderate or heavy rain in area with thunder",
+    "DayIcon": "day/Thunderstorms.png",
+    "NightIcon": "night/Thunderstorms.png"
+},
+{
+    "WeatherCode": "386",
+    "Condition": "Patchy light rain in area with thunder",
+    "DayIcon": "day/Thunderstorms.png",
+    "NightIcon": "night/Thunderstorms.png"
+},
+{
+    "WeatherCode": "377",
+    "Condition": "Moderate or heavy showers of ice pellets",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "374",
+    "Condition": "Light showers of ice pellets",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "371",
+    "Condition": "Moderate or heavy snow showers",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "368",
+    "Condition": "Light snow showers",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "365",
+    "Condition": "Moderate or heavy sleet showers",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "362",
+    "Condition": "Light sleet showers",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "359",
+    "Condition": "Torrential rain shower",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "356",
+    "Condition": "Moderate or heavy rain shower",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "353",
+    "Condition": "Light rain shower",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "350",
+    "Condition": "Ice pellets",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "338",
+    "Condition": "Heavy snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "335",
+    "Condition": "Patchy heavy snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "332",
+    "Condition": "Moderate snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "329",
+    "Condition": "Patchy moderate snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "326",
+    "Condition": "Light snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "323",
+    "Condition": "Patchy light snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "320",
+    "Condition": "Moderate or heavy sleet",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "317",
+    "Condition": "Light sleet",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "314",
+    "Condition": "Moderate or Heavy freezing rain",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "311",
+    "Condition": "Light freezing rain",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "308",
+    "Condition": "Heavy rain",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "305",
+    "Condition": "Heavy rain at times",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "302",
+    "Condition": "Moderate rain",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "299",
+    "Condition": "Moderate rain at times",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "296",
+    "Condition": "Light rain",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "293",
+    "Condition": "Patchy light rain",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "284",
+    "Condition": "Heavy freezing drizzle",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "281",
+    "Condition": "Freezing drizzle",
+    "DayIcon": "day/Rain.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "266",
+    "Condition": "Light drizzle",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "263",
+    "Condition": "Patchy light drizzle",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "260",
+    "Condition": "Freezing fog",
+    "DayIcon": "day/Haze.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "248",
+    "Condition": "Fog",
+    "DayIcon": "day/Haze.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "230",
+    "Condition": "Blizzard",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "227",
+    "Condition": "Blowing snow",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "200",
+    "Condition": "Thundery outbreaks in nearby",
+    "DayIcon": "day/Thunderstorms.png",
+    "NightIcon": "night/Thunderstorms.png"
+},
+{
+    "WeatherCode": "185",
+    "Condition": "Patchy freezing drizzle nearby",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "182",
+    "Condition": "Patchy sleet nearby",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "179",
+    "Condition": "Patchy snow nearby",
+    "DayIcon": "day/Snow.png",
+    "NightIcon": "day/Snow.png"
+},
+{
+    "WeatherCode": "176",
+    "Condition": "Patchy rain nearby",
+    "DayIcon": "day/Drizzle.png",
+    "NightIcon": "night/Rain.png"
+},
+{
+    "WeatherCode": "143",
+    "Condition": "Mist",
+    "DayIcon": "day/Haze.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "122",
+    "Condition": "Overcast",
+    "DayIcon": "day/Cloudy.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "119",
+    "Condition": "Cloudy",
+    "DayIcon": "day/Cloudy.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "116",
+    "Condition": "Partly Cloudy",
+    "DayIcon": "day/MostlyCloudy.png",
+    "NightIcon": "night/Cloudy.png"
+},
+{
+    "WeatherCode": "113",
+    "Condition": "Clear/Sunny",
+    "DayIcon": "day/Sunny.png",
+    "NightIcon": "night/Moon.png"
+}
+]

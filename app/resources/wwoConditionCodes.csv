@@ -1,0 +1,49 @@
+WeatherCode,Condition,DayIcon,NightIcon
+395,Moderate or heavy snow in area with thunder,day/Snow.png,day/Snow.png
+392,Patchy light snow in area with thunder,day/Snow.png,day/Snow.png
+389,Moderate or heavy rain in area with thunder,day/Thunderstorms.png,night/Thunderstorms.png
+386,Patchy light rain in area with thunder,day/Thunderstorms.png,night/Thunderstorms.png
+377,Moderate or heavy showers of ice pellets,day/Snow.png,day/Snow.png
+374,Light showers of ice pellets,day/Snow.png,day/Snow.png
+371,Moderate or heavy snow showers,day/Snow.png,day/Snow.png
+368,Light snow showers,day/Snow.png,day/Snow.png
+365,Moderate or heavy sleet showers,day/Snow.png,day/Snow.png
+362,Light sleet showers,day/Snow.png,day/Snow.png
+359,Torrential rain shower,day/Rain.png,night/Rain.png
+356,Moderate or heavy rain shower,day/Rain.png,night/Rain.png
+353,Light rain shower,day/Drizzle.png,night/Rain.png
+350,Ice pellets,day/Snow.png,day/Snow.png
+338,Heavy snow,day/Snow.png,day/Snow.png
+335,Patchy heavy snow,day/Snow.png,day/Snow.png
+332,Moderate snow,day/Snow.png,day/Snow.png
+329,Patchy moderate snow,day/Snow.png,day/Snow.png
+326,Light snow,day/Snow.png,day/Snow.png
+323,Patchy light snow,day/Snow.png,day/Snow.png
+320,Moderate or heavy sleet,day/Snow.png,day/Snow.png
+317,Light sleet,day/Snow.png,day/Snow.png
+314,Moderate or Heavy freezing rain,day/Snow.png,day/Snow.png
+311,Light freezing rain,day/Snow.png,day/Snow.png
+308,Heavy rain,day/Rain.png,night/Rain.png
+305,Heavy rain at times,day/Rain.png,night/Rain.png
+302,Moderate rain,day/Rain.png,night/Rain.png
+299,Moderate rain at times,day/Rain.png,night/Rain.png
+296,Light rain,day/Drizzle.png,night/Rain.png
+293,Patchy light rain,day/Drizzle.png,night/Rain.png
+284,Heavy freezing drizzle,day/Rain.png,night/Rain.png
+281,Freezing drizzle,day/Rain.png,night/Rain.png
+266,Light drizzle,day/Drizzle.png,night/Rain.png
+263,Patchy light drizzle,day/Drizzle.png,night/Rain.png
+260,Freezing fog,day/Haze.png,night/Cloudy.png
+248,Fog,day/Haze.png,night/Cloudy.png
+230,Blizzard,day/Snow.png,day/Snow.png
+227,Blowing snow,day/Snow.png,day/Snow.png
+200,Thundery outbreaks in nearby,day/Thunderstorms.png,night/Thunderstorms.png
+185,Patchy freezing drizzle nearby,day/Drizzle.png,night/Rain.png
+182,Patchy sleet nearby,day/Snow.png,day/Snow.png
+179,Patchy snow nearby,day/Snow.png,day/Snow.png
+176,Patchy rain nearby,day/Drizzle.png,night/Rain.png
+143,Mist,day/Haze.png,night/Cloudy.png
+122,Overcast,day/Cloudy.png,night/Cloudy.png
+119,Cloudy,day/Cloudy.png,night/Cloudy.png
+116,Partly Cloudy,day/MostlyCloudy.png,night/Cloudy.png
+113,Clear/Sunny,day/Sunny.png,night/Moon.png
