@@ -1,33 +1,36 @@
 'use strict';
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, $http, $filter, StickyBoard, Bookmark, WeatherReport) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport) {
+
+    // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
     var key = $cookieStore.get('weatherKey');
-    var now = new Date();
-    console.log('cookie before fetching: '+token);
+    //console.log('cookie before fetching: '+token);
 
-    $scope.bookmarks = Bookmark.query({authToken:token});
-    $scope.sticky = StickyBoard.pull({authToken:token});
-    $scope.orderBookmarks = 'id';
-    $scope.weatherKey = key;
+    // Figure current time
+    var now = new Date();
     $scope.hours = now.getHours();
 
+    // Init bookmarks
+    $scope.bookmarks = Bookmark.query({authToken:token});
+    $scope.orderBookmarks = 'id';
 
-    WeatherReport.report({key:key}, function(wr){
-        $scope.weatherReport = wr.data.current_condition[0];
-        $scope.weatherCode = wr.data.current_condition[0].weatherCode;
-        console.log('wc: '+$scope.weatherCode);
+    // Init stickyboard
+    $scope.sticky = StickyBoard.pull({authToken:token});
+    $scope.weatherKey = key;
 
-        $http({method:'GET', url:'/resources/wwoConditionCodes.json'})
-        .success(function(data) {
-            $scope.conditionCodes = data;
-        });
+    // Get weather conditions from weather api
+    WeatherReport.conditions({key:key}, function(wc){
+        $scope.weatherReport = wc;
+    });
 
-        $scope.conditionCode = $filter('filter')($scope.conditionCodes, $scope.weatherCode);
-        console.log('cc: '+$scope.conditionCode);
+    // Get weather astronomy from weather api
+    WeatherReport.astronomy({key:key}, function(wa){
+        $scope.weatherAstronomy = wa;
     });
 
 
+    // Scope functions
     $scope.pushStickyboard = function(){
         token = $cookieStore.get('authToken');
         var response = StickyBoard.push({authToken:token}, {content:this.sticky.content});
