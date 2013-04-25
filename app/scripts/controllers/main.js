@@ -1,6 +1,6 @@
 'use strict';
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation) {
 
     // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
@@ -14,6 +14,9 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
     // Init bookmarks
     $scope.bookmarks = Bookmark.query({authToken:token});
     $scope.orderBookmarks = 'id';
+
+    // Init velibstations
+    $scope.velibStations = VelibStation.query({authToken:token});
 
     // Init stickyboard
     $scope.sticky = StickyBoard.pull({authToken:token});
