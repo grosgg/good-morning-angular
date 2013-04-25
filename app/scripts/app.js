@@ -1,6 +1,11 @@
 'use strict';
 
-var goodMorningAngularApp = angular.module('goodMorningAngularApp', ['ngCookies', 'authServices', 'weatherKeyServices', 'weatherReportServices', 'stickyServices', 'bookmarkServices', 'velibstationServices']);
+var goodMorningAngularApp = angular.module('goodMorningAngularApp', [
+    'ngCookies', 'authServices',
+    'weatherKeyServices', 'weatherReportServices',
+    'stickyServices', 'bookmarkServices',
+    'velibstationServices', 'velibreportServices'
+]);
 
 goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -51,10 +56,6 @@ goodMorningAngularApp.factory('goodMorningInterceptor', function ($q, $location,
 });
 
 goodMorningAngularApp.config(function ($httpProvider) {
-    //$httpProvider.defaults.headers.common['X-Requested-With'] = '';
-    //console.log('httpP: '+$httpProvider);
-    //delete $httpProvider.defaults.headers.common["X-Requested-With"]
-    //console.log('httpP: '+$httpProvider);
     $httpProvider.responseInterceptors.push('goodMorningInterceptor');
 });
 

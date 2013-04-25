@@ -59,6 +59,11 @@
                 {{ velibStation.velib_station_id }} | {{ velibStation.title }}
             </li>
         </ul>
+        <ul class="velibreports">
+            <li ng-repeat="velibReport in velibReports">
+                {{ velibReport.velib_station_id }} | {{ velibReport.title }}
+            </li>
+        </ul>
     </div>
     <div class="span8">
         <h2>Tomo's Schedule</h2>
