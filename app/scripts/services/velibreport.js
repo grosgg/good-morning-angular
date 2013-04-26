@@ -1,28 +1,27 @@
 'use strict';
 
 angular.module('velibreportServices', ['ngResource'])
-.factory('VelibReport', function ($resource) {
+.factory('VelibReport', ['$http',function($http){
 
     // Load x2js lib
     var x2js = new X2JS();
 
-    return $resource(
-        'http://www.velib.paris.fr/service/stationdetails/paris/:stationId'
-            + '?callback=JSON_CALLBACK',
-        {
-            stationId:13002
-        },
-        {
-            'get': {
-                method:'JSONP',
-                config: {
+    return {
+        get: function(callback, authToken, stationId){
+            $http.get(
+                'http://localhost:3000/velibreports/'
+                +stationId+'.json?authentication_token='+authToken,
+                {
                     transformResponse : function(data) {
-                        console.log('vr: '+data);
                         var json = x2js.xml_str2json(data);
+                        console.log('vr: '+json);
                         return json;
                     }
                 }
-            }
+            ).
+            success(function(data, status) {
+                callback(data);
+            })
         }
-    );
-});
+    }
+}]);

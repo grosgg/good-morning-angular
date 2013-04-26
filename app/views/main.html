@@ -61,7 +61,7 @@
         </ul>
         <ul class="velibreports">
             <li ng-repeat="velibReport in velibReports">
-                {{ velibReport.velib_station_id }} | {{ velibReport.title }}
+                {{ velibReport.station.available }} / {{ velibReport.station.total }}
             </li>
         </ul>
     </div>

@@ -19,13 +19,12 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
     VelibStation.query({authToken:token}, function(vs){
         console.log(vs);
         $scope.velibStations = vs;
+        $scope.velibReports = new Array();
 
         // Get velib report from velib api
         $scope.velibStations.forEach(function(element, index, array){
             console.log('element '+element.velib_station_id+' index '+index);
-            VelibReport.get({stationId:element.velib_station_id}, function(vr){
-                $scope.velibReport[index] = vr;
-            });
+            VelibReport.get(setVR, token, element.velib_station_id);
         });
     });
 
@@ -54,6 +53,10 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
     $scope.pullStickyboard = function(){
         token = $cookieStore.get('authToken');
         $scope.sticky = StickyBoard.pull({authToken:token});
+    }
+
+    var setVR = function(data) {
+        $scope.velibReports.push(data);
     }
 });
 
