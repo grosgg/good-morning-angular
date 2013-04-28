@@ -1,6 +1,6 @@
 'use strict';
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation, VelibReport) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation) {
 
     // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
@@ -17,21 +17,16 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
 
     // Init velibstations
     VelibStation.query({authToken:token}, function(vs){
-        console.log(vs);
+        //console.log(vs);
         $scope.velibStations = vs;
-        $scope.velibReports = new Array();
-
-        // Get velib report from velib api
-        $scope.velibStations.forEach(function(element, index, array){
-            console.log('element '+element.velib_station_id+' index '+index);
-            VelibReport.get(setVR, token, element.velib_station_id);
-        });
     });
 
     // Init stickyboard
     $scope.sticky = StickyBoard.pull({authToken:token});
     $scope.weatherKey = key;
 
+    // Init tomoschedule
+    $scope.tomoSchedule = 'red';
 
     // Get weather conditions from weather api
     WeatherReport.conditions({key:key}, function(wc){

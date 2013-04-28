@@ -14,13 +14,16 @@ angular.module('velibreportServices', ['ngResource'])
                 {
                     transformResponse : function(data) {
                         var json = x2js.xml_str2json(data);
-                        console.log('vr: '+json);
                         return json;
                     }
                 }
             ).
-            success(function(data, status) {
-                callback(data);
+            success(function(data, status, headers, config) {
+                console.log(config.url);
+                var regex=/\d{5}/;
+                var stationId=regex.exec(config.url);
+                console.log('station: '+stationId);
+                callback(data, stationId);
             })
         }
     }

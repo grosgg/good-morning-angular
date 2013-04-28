@@ -22,19 +22,16 @@
         <a ng-click="pullStickyboard()" class="btn">Pull</a>
     </div>
     <div class="span4">
-        <h2>Bookmarks</h2>
-        <form class="form-search">
-            <div>
-                <input ng-model="searchBookmarks" type="text" class="input input-large search-query" placeholder="Search">
+        <h2>Vélib</h2>
+        <div class="row">
+            <div class="span4">
+                <ul class="velibstations unstyled">
+                    <li ng-repeat="velibStation in velibStations">
+                    {{ velibStation.station.title }}: {{ velibStation.report.available }} / {{ velibStation.report.total }}
+                    </li>
+                </ul>
             </div>
-        </form>
-
-        <ul class="bookmarks">
-            <li ng-repeat="bookmark in bookmarks | filter:searchBookmarks | orderBy:orderBookmarks | limitTo:20">
-                <a href="{{ bookmark.url }}" title="{{ bookmark.description }}" target=_blank>{{ bookmark.title }}</a>
-            </li>
-        </ul>
-
+        </div>
     </div>
 </div>
 
@@ -52,21 +49,95 @@
 <hr/>
 
 <div class="row">
-    <div class="span4">
-        <h2>Vélib</h2>
-        <ul class="velibstations">
-            <li ng-repeat="velibStation in velibStations">
-                {{ velibStation.velib_station_id }} | {{ velibStation.title }}
-            </li>
-        </ul>
-        <ul class="velibreports">
-            <li ng-repeat="velibReport in velibReports">
-                {{ velibReport.station.available }} / {{ velibReport.station.total }}
-            </li>
-        </ul>
-    </div>
     <div class="span8">
         <h2>Tomo's Schedule</h2>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>This Week</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AM</td>
+                    <td style="background-color:{{ tomoSchedule }}"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>Next Week</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span4">
+        <h2>Bookmarks</h2>
+        <form class="form-search">
+            <div>
+                <input ng-model="searchBookmarks" type="text" class="input input-large search-query" placeholder="Search">
+            </div>
+        </form>
+
+        <ul class="bookmarks">
+            <li ng-repeat="bookmark in bookmarks | filter:searchBookmarks | orderBy:orderBookmarks | limitTo:20">
+                <a href="{{ bookmark.url }}" title="{{ bookmark.description }}" target=_blank>{{ bookmark.title }}</a>
+            </li>
+        </ul>
+
     </div>
 </div>
 
