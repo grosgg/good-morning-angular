@@ -4,7 +4,6 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
 
     // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
-    var key = $cookieStore.get('weatherKey');
     //console.log('cookie before fetching: '+token);
 
     // Figure current time
@@ -23,20 +22,15 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
 
     // Init stickyboard
     $scope.sticky = StickyBoard.pull({authToken:token});
-    $scope.weatherKey = key;
 
     // Init tomoschedule
     $scope.tomoSchedule = 'red';
 
-    // Get weather conditions from weather api
-    WeatherReport.conditions({key:key}, function(wc){
-        $scope.weatherReport = wc;
+    // Get weather conditions and astronmy from backend api
+    WeatherReport.query({authToken:token}, function(wr){
+        $scope.weatherReport = wr;
     });
 
-    // Get weather astronomy from weather api
-    WeatherReport.astronomy({key:key}, function(wa){
-        $scope.weatherAstronomy = wa;
-    });
 
 
     // Scope functions
