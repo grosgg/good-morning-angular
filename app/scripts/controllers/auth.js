@@ -1,6 +1,6 @@
 'use strict';
 
-goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $location, $cookieStore, Auth, WeatherKey) {
+goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $location, $cookieStore, Auth) {
     $scope.email = 'marin.jeremy@gmail.com';
     $scope.password = 'sabusushi';
 

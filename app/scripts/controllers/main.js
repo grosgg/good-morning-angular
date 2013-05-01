@@ -1,6 +1,6 @@
 'use strict';
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation, KuniDay) {
 
     // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
@@ -15,22 +15,18 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
     $scope.orderBookmarks = 'id';
 
     // Init velibstations
-    VelibStation.query({authToken:token}, function(vs){
-        //console.log(vs);
-        $scope.velibStations = vs;
-    });
+    $scope.velibStations = VelibStation.query({authToken:token});
 
     // Init stickyboard
     $scope.sticky = StickyBoard.pull({authToken:token});
 
-    // Init tomoschedule
-    $scope.tomoSchedule = 'red';
+    // Init kunidays
+    $scope.kuniDays = KuniDay.query({authToken:token});
 
-    // Get weather conditions and astronmy from backend api
-    WeatherReport.query({authToken:token}, function(wr){
-        $scope.weatherReport = wr;
-    });
+    // Get weather conditions and astronomy from backend api
+    //$scope.weatherReport = WeatherReport.query({authToken:token});
 
+    $scope.kuniPop = '<a class="btn" ng-click="kuniPop(index)">Gros</a>';
 
 
     // Scope functions

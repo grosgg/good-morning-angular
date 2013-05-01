@@ -1,10 +1,12 @@
 'use strict';
 
 var goodMorningAngularApp = angular.module('goodMorningAngularApp', [
+    'ui.bootstrap',
     'ngCookies', 'authServices',
-    'weatherKeyServices', 'weatherReportServices',
     'stickyServices', 'bookmarkServices',
-    'velibstationServices', 'velibreportServices'
+    'velibstationServices',
+    'weatherreportServices', 'kunidayServices',
+    'kunidayFilters'
 ]);
 
 goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {

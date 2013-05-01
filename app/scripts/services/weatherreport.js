@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('weatherReportServices', ['ngResource'])
+angular.module('weatherreportServices', ['ngResource'])
 .factory('WeatherReport', function ($resource) {
 
     return $resource(
