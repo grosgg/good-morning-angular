@@ -1,6 +1,6 @@
 'use strict';
 
-goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation, KuniDay) {
+goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieStore, StickyBoard, Bookmark, WeatherReport, VelibStation, KuniDay) {
 
     // Get backend token and weather key from cache
     var token = $cookieStore.get('authToken');
@@ -40,9 +40,37 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $cookieStore, Stic
         $scope.sticky = StickyBoard.pull({authToken:token});
     }
 
-    var setVR = function(data) {
-        $scope.velibReports.push(data);
+    $scope.kuniSwitch = function(week, weekDay, ampm, previousValue){
+        if (previousValue == undefined) {
+            previousValue = 'undefined';
+        }
+        console.log('params: '+week+' '+weekDay+' '+ampm+' '+previousValue);
+        var possibleValues = [
+            { 'id': 0, 'status' :'undefined' },
+            { 'id': 1, 'status' :'kt1' },
+            { 'id': 2, 'status' :'kt2' },
+            { 'id': 3, 'status' :'free' },
+            { 'id': 4, 'status' :'unsure' },
+        ];
+        var matchValue = $filter('filter')(possibleValues, previousValue);
+        var matchValueId = matchValue[0].id;
+        if (matchValueId == 4) {
+            var nextValueId = 0;
+        } else {
+            var nextValueId = matchValueId+1;
+        }
+
+        // Create the object if it doesn't exist yet
+        if ($scope.kuniDays[week][weekDay] == undefined) {
+            $scope.kuniDays[week][weekDay] = {};
+        }
+
+        //console.log($scope.kuniDays[week]);
+        //console.log($scope.kuniDays[week][weekDay]);
+        //console.log($scope.kuniDays[week][weekDay][ampm]);
+        $scope.kuniDays[week][weekDay][ampm] = possibleValues[nextValueId].status;
     }
+
 });
 
 
