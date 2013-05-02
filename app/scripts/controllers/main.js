@@ -26,7 +26,6 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
     // Get weather conditions and astronomy from backend api
     //$scope.weatherReport = WeatherReport.query({authToken:token});
 
-    $scope.kuniPop = '<a class="btn" ng-click="kuniPop(index)">Gros</a>';
 
 
     // Scope functions
@@ -42,11 +41,11 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
 
     $scope.kuniSwitch = function(week, weekDay, ampm, previousValue){
         if (previousValue == undefined) {
-            previousValue = 'undefined';
+            previousValue = '';
         }
         console.log('params: '+week+' '+weekDay+' '+ampm+' '+previousValue);
         var possibleValues = [
-            { 'id': 0, 'status' :'undefined' },
+            { 'id': 0, 'status' :'' },
             { 'id': 1, 'status' :'kt1' },
             { 'id': 2, 'status' :'kt2' },
             { 'id': 3, 'status' :'free' },
@@ -65,10 +64,14 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
             $scope.kuniDays[week][weekDay] = {};
         }
 
-        //console.log($scope.kuniDays[week]);
-        //console.log($scope.kuniDays[week][weekDay]);
-        //console.log($scope.kuniDays[week][weekDay][ampm]);
         $scope.kuniDays[week][weekDay][ampm] = possibleValues[nextValueId].status;
+
+        var response = KuniDay.save({authToken:token}, {
+            'week': week,
+            'weekDay': weekDay,
+            'am': $scope.kuniDays[week][weekDay]['am'],
+            'pm': $scope.kuniDays[week][weekDay]['pm']
+        });
     }
 
 });

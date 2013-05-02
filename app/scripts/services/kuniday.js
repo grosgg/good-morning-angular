@@ -8,7 +8,8 @@ angular.module('kunidayServices', ['ngResource'])
         {
         },
         {
-            'query': {method:'GET', params:{}, isArray:false}
+            'query': {method:'GET', params:{}, isArray:false},
+            'save': {method:'POST', params:{}, isArray:false}
         }
     );
 });

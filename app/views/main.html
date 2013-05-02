@@ -70,7 +70,7 @@
                     <td ng-repeat="index in [1,2,3,4,5,6,7]">
                         <span class="kuni-label label {{ kuniDays['tWeek'][index].am | KuniLabel }}" ng-click="kuniSwitch('tWeek', index, 'am', kuniDays['tWeek'][index].am)">
                             {{ kuniDays['tWeek'][index].am }}&nbsp;
-                            <i class="icon-pencil icon-white"></i>
+                            <i class="icon-pencil icon-white" ng-hide="kuniDays['tWeek'][index].am"></i>
                         </span>
                     </td>
                 </tr>

@@ -4,7 +4,7 @@ angular.module('kunidayFilters', [])
 .filter('KuniLabel', function () {
 
     var labelClasses = {
-        free: '',
+        free: 'label-info',
         kt1: 'label-important',
         kt2: 'label-important',
         unsure: 'label-warning'
