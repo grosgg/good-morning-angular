@@ -22,6 +22,15 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
 
     // Init kunidays
     $scope.kuniDays = KuniDay.query({authToken:token});
+    $scope.tWeek = now.getWeek();
+    $scope.tWeekYear = now.getFullYear();
+    if ($scope.tWeek == 52) {
+        $scope.nWeek = 1;
+        $scope.nWeekYear = $scope.tWeekYear+1;
+    } else {
+        $scope.nWeek = $scope.tWeek+1;
+        $scope.nWeekYear = $scope.tWeekYear;
+    }
 
     // Get weather conditions and astronomy from backend api
     //$scope.weatherReport = WeatherReport.query({authToken:token});
@@ -68,7 +77,7 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
 
         var response = KuniDay.save({authToken:token}, {
             'week': week,
-            'weekDay': weekDay,
+            'weekday': weekDay,
             'am': $scope.kuniDays[week][weekDay]['am'],
             'pm': $scope.kuniDays[week][weekDay]['pm']
         });
