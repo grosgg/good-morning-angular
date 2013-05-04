@@ -23,6 +23,10 @@ goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'views/weather.html',
         controller: 'WeatherCtrl'
     })
+    .when('/kunidays', {
+        templateUrl: 'views/kunidays.html',
+        controller: 'KunidaysCtrl'
+    })
     .when('/news', {
         templateUrl: 'views/news.html',
         controller: 'NewsCtrl'
@@ -71,6 +75,9 @@ goodMorningAngularApp.run(function($rootScope, $cookieStore) {
 });
 
 Date.prototype.getWeek = function() {
-var onejan = new Date(this.getFullYear(),0,1);
-return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+    var d = this;
+    d.setHours(0,0,0);
+    d.setDate(d.getDate() + 4 - (d.getDay()||7));
+    var onejan = new Date(d.getFullYear(),0,1);
+    return Math.ceil((((d - onejan) / 86400000) + onejan.getDay()+1)/7);
 }

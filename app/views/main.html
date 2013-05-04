@@ -49,70 +49,17 @@
 <hr/>
 
 <div class="row">
-    <div class="span8">
+    <div class="span4">
         <h2>Tomo's Schedule</h2>
         <table class="table table-bordered table-condensed">
             <thead>
-                <tr>
-                    <th>This Week</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                </tr>
+                <th>AM</th>
+                <th>PM</th>
             </thead>
             <tbody>
                 <tr>
-                    <td>AM</td>
-                    <td ng-repeat="index in [1,2,3,4,5,6,7]">
-                        <span class="kuni-label label {{ kuniDays[tWeek][index].am | KuniLabel }}" ng-click="kuniSwitch(tWeek, index, 'am', kuniDays[tWeek][index].am)">
-                            {{ kuniDays[tWeek][index].am }}&nbsp;
-                            <i class="icon-pencil icon-white" ng-hide="kuniDays[tWeek][index].am"></i>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>PM</td>
-                    <td ng-repeat="index in [1,2,3,4,5,6,7]">
-                        <span class="label {{ kuniDays[tWeek][index].pm | KuniLabel }}" ng-show="kuniDays[tWeek][index].pm">
-                            {{ kuniDays[tWeek][index].pm }}
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>Next Week</th>
-                    <th>Mon</th>
-                    <th>Tue</th>
-                    <th>Wed</th>
-                    <th>Thu</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>AM</td>
-                    <td ng-repeat="index in [1,2,3,4,5,6,7]">
-                        <span class="label {{ kuniDays[nWeek][index].am | KuniLabel }}" ng-show="kuniDays[nWeek][index].am">
-                            {{ kuniDays[nWeek][index].am }}
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>PM</td>
-                    <td ng-repeat="index in [1,2,3,4,5,6,7]">
-                        <span class="label {{ kuniDays[nWeek][index].pm | KuniLabel }}" ng-show="kuniDays[nWeek][index].pm">
-                            {{ kuniDays[nWeek][index].pm }}
-                        </span>
-                    </td>
+                    <td><span class="label {{ kuniDay.am | KuniLabel }}">{{ kuniDay.am }}</span></td>
+                    <td><span class="label {{ kuniDay.pm | KuniLabel }}">{{ kuniDay.pm }}</span></td>
                 </tr>
             </tbody>
         </table>
