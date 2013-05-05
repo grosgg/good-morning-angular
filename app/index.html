@@ -24,14 +24,14 @@
 
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
-            <div ng-controller='AuthCtrl' class="container-fluid">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <div ng-controller='AuthCtrl' class="container">
+                <button type="button" class="btn btn-navbar" ng-click="isCollapsed = !isCollapsed">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="brand" href="#">Good Morning!</a>
-                <div class="nav-collapse collapse">
+                <div class="nav-collapse collapse" collapse="isCollapsed">
                     <ul ng-show="logged" class="nav">
                         <li ng-show="logged" class="active"><a href="/home/">Home</a></li>
                         <li ng-show="logged"><a href="/weather/">Weather</a></li>
@@ -44,26 +44,21 @@
                         <input ng-model="password" class="span2" type="password" placeholder="Password">
                         <button ng-click="signin()" type="submit" class="btn">Sign in</button>
                     </form>
-                    <p ng-show="logged" class="navbar-text pull-right">
-                        {{ username }}
-                        <a ng-click="signout()" href="#">Sign Out</a>
-                    </p>
+                    <form ng-show="logged" class="navbar-form pull-right">
+                        <button ng-click="signout()" href="#" class="btn">Sign Out</button>
+                    </form>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
     </div>
     <!-- Add your site or application content here -->
-    <div class="container-fluid" ng-view></div>
+    <div class="container" ng-view></div>
 
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/ui-bootstrap-tpls-0.3.0.js"></script>
-
-    <!--<script src="components/jquery/jquery-1.9.1.min.js"></script>-->
-    <!--<script src="components/bootstrap/bootstrap.min.js"></script>-->
-    <!--<script src="scripts/xml2json.js"></script>-->
+    <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>

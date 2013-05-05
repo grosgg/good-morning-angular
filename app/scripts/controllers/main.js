@@ -26,7 +26,7 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
     $scope.kuniDay = KuniDaySingle.today({authToken:token});
 
     // Get weather conditions and astronomy from backend api
-    //$scope.weatherReport = WeatherReport.query({authToken:token});
+    $scope.weatherReport = WeatherReport.query({authToken:token});
 
 
 

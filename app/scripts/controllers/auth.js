@@ -3,6 +3,7 @@
 goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $location, $cookieStore, Auth) {
     $scope.email = 'marin.jeremy@gmail.com';
     $scope.password = 'sabusushi';
+    $scope.isCollapsed = true;
 
     $scope.signin = function(){
         var responseAuth = Auth.signin({email:this.email, password:this.password}, function() {
