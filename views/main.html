@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="span4">
+        <h2>Weather</h2>
+        <div class="row">
+            <div class="span2">
+                <img ng-src="{{ weatherReport.conditions.icon_url }}">
+                <h4>{{ weatherReport.conditions.weather }}</h4>
+            </div>
+            <div class="span2">
+                <ul class="unstyled">
+                    <li><h2>{{ weatherReport.conditions.temp_c }}°C</h2></li>
+                    <li>Feels like {{ weatherReport.conditions.feelslike_c }}°C</li>
+                    <li>{{ weatherReport.conditions.display_location.full }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <h2>Sticky Board</h2>
+        <textarea ng-model="sticky.content">{{ sticky.content }}</textarea><br>
+        <a ng-click="pushStickyboard()" class="btn">Push</a>
+        <a ng-click="pullStickyboard()" class="btn">Pull</a>
+    </div>
+    <div class="span4">
+        <h2>Vélib</h2>
+        <div class="row">
+            <div class="span4">
+                <ul class="velibstations unstyled">
+                    <li ng-repeat="velibStation in velibStations">
+                    {{ velibStation.station.title }}: {{ velibStation.report.available }} / {{ velibStation.report.total }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="span4">
+        <h2>News</h2>
+    </div>
+    <div class="span4">
+        <h2>Todos</h2>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="span4">
+        <h2>Tomo's Schedule</h2>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <th>AM</th>
+                <th>PM</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="label {{ kuniDay.am | KuniLabel }}">{{ kuniDay.am }}</span></td>
+                    <td><span class="label {{ kuniDay.pm | KuniLabel }}">{{ kuniDay.pm }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span4">
+        <h2>Bookmarks</h2>
+        <form class="form-search">
+            <div>
+                <input ng-model="searchBookmarks" type="text" class="input input-large search-query" placeholder="Search">
+            </div>
+        </form>
+
+        <ul class="bookmarks">
+            <li ng-repeat="bookmark in bookmarks | filter:searchBookmarks | orderBy:orderBookmarks | limitTo:20">
+                <a href="{{ bookmark.url }}" title="{{ bookmark.description }}" target="_blank">{{ bookmark.title }}</a>
+            </li>
+        </ul>
+
+    </div>
+</div>
