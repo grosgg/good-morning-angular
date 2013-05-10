@@ -4,7 +4,7 @@ angular.module('kunidayServices', ['ngResource'])
 .factory('KuniDay', function ($resource) {
 
     return $resource(
-        'http://localhost\\:3000/kunidays.json?authentication_token=:authToken',
+        backendUrl+'kunidays.json?authentication_token=:authToken',
         {
         },
         {
@@ -20,7 +20,7 @@ angular.module('kunidayServices', ['ngResource'])
     var d = now.getFullYear() +'-'+ ('0'+(now.getMonth()+1)).slice(-2) +'-'+ ('0'+now.getDate()).slice(-2);
 
     return $resource(
-        'http://localhost\\:3000/kunidays/:date.json?authentication_token=:authToken',
+        backendUrl+'kunidays/:date.json?authentication_token=:authToken',
         {
         },
         {

@@ -1,8 +1,8 @@
 'use strict';
 
 goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $location, $cookieStore, Auth) {
-    $scope.email = 'marin.jeremy@gmail.com';
-    $scope.password = 'sabusushi';
+    $scope.email = usernamePrefill;
+    $scope.password = passwordPrefill;
     $scope.isCollapsed = true;
 
     $scope.signin = function(){
@@ -14,7 +14,7 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $locat
             $scope.username = responseAuth.user.email;
             $rootScope.logged = true;
 
-            console.log('auth cookie after signin: '+$cookieStore.get('authToken'));
+            //console.log('auth cookie after signin: '+$cookieStore.get('authToken'));
             $location.path('/home/');
         });
     }
@@ -24,7 +24,7 @@ goodMorningAngularApp.controller("AuthCtrl", function($scope, $rootScope, $locat
         var response = Auth.signout({authToken:token}, function() {
             $cookieStore.remove('authToken');
             $rootScope.logged = false;
-            console.log('cookie after signout: '+$cookieStore.get('authToken'));
+            //console.log('cookie after signout: '+$cookieStore.get('authToken'));
             $location.path('/');
         });
     }
