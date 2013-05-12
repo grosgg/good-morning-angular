@@ -1,24 +1,22 @@
 <div class="row">
     <div class="span4">
         <h2>Weather</h2>
-        <div class="row">
-            <div class="span2">
+            <div class="pull-left" style="margin-right:20px">
                 <img ng-src="{{ weatherReport.conditions.icon_url }}">
                 <h4>{{ weatherReport.conditions.weather }}</h4>
             </div>
-            <div class="span2">
+            <div>
                 <ul class="unstyled">
                     <li><h2>{{ weatherReport.conditions.temp_c }}°C</h2></li>
                     <li>Feels like {{ weatherReport.conditions.feelslike_c }}°C</li>
                     <li>{{ weatherReport.conditions.display_location.full }}</li>
                 </ul>
             </div>
-        </div>
         <hr>
     </div>
     <div class="span4">
         <h2>Sticky Board</h2>
-        <textarea ng-model="sticky.content">{{ sticky.content }}</textarea><br>
+        <textarea ng-model="sticky.content" id="sticky" rows="6">{{ sticky.content }}</textarea><br>
         <a ng-click="pushStickyboard()" class="btn">Push</a>
         <a ng-click="pullStickyboard()" class="btn">Pull</a>
         <hr>

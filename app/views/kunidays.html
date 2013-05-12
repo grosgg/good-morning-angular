@@ -1,10 +1,10 @@
 <div class="row-fluid">
     <div class="span12">
-        <h1>Tomo's Work Shifts</h1>
+        <h1>Tomo's <span class="hidden-phone">Work </span>Shifts</h1>
         <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>This Week</th>
+                    <th class="hidden-phone">This Week</th>
                     <th>Mon <i class="icon-arrow-down" ng-show="wday == 1"></i></th>
                     <th>Tue <i class="icon-arrow-down" ng-show="wday == 2"></i></th>
                     <th>Wed <i class="icon-arrow-down" ng-show="wday == 3"></i></th>
@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>AM</td>
+                    <td class="hidden-phone">AM</td>
                     <td ng-repeat="index in [1,2,3,4,5,6,7]">
                         <span class="kuni-label label {{ kuniDays[tWeek][index].am | KuniLabel }}" ng-click="kuniSwitch(tYear, tWeek, index, 'am', kuniDays[tWeek][index].am)">
                             {{ kuniDays[tWeek][index].am }}&nbsp;
@@ -25,7 +25,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>PM</td>
+                    <td class="hidden-phone">PM</td>
                     <td ng-repeat="index in [1,2,3,4,5,6,7]">
                         <span class="kuni-label label {{ kuniDays[tWeek][index].pm | KuniLabel }}" ng-click="kuniSwitch(tYear, tWeek, index, 'pm', kuniDays[tWeek][index].pm)">
                             {{ kuniDays[tWeek][index].pm }}&nbsp;
@@ -38,7 +38,7 @@
         <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>Next Week</th>
+                    <th class="hidden-phone">Next Week</th>
                     <th>Mon</th>
                     <th>Tue</th>
                     <th>Wed</th>
@@ -50,7 +50,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>AM</td>
+                    <td class="hidden-phone">AM</td>
                     <td ng-repeat="index in [1,2,3,4,5,6,7]">
                         <span class="kuni-label label {{ kuniDays[nWeek][index].am | KuniLabel }}" ng-click="kuniSwitch(nYear, nWeek, index, 'am', kuniDays[nWeek][index].am)">
                             {{ kuniDays[nWeek][index].am }}&nbsp;
@@ -59,7 +59,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>PM</td>
+                    <td class="hidden-phone">PM</td>
                     <td ng-repeat="index in [1,2,3,4,5,6,7]">
                         <span class="kuni-label label {{ kuniDays[nWeek][index].pm | KuniLabel }}" ng-click="kuniSwitch(nYear, nWeek, index, 'pm', kuniDays[nWeek][index].pm)">
                             {{ kuniDays[nWeek][index].pm }}&nbsp;

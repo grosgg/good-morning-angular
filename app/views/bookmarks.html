@@ -4,7 +4,7 @@
         <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
         <form class="form-search">
             <div class="controls">
-                <input ng-model="searchBookmarks" type="text" class="input-xlarge search-query" placeholder="Search">
+                <input ng-model="searchBookmarks" type="text" class="input-small search-query" placeholder="Search">
                 <button class="btn btn-primary pull-right" ng-click="bookmarkBox(null)">Add Bookmark</button>
             </div>
         </form>
@@ -16,7 +16,7 @@
                         <a href="{{ bookmark.url }}" target=_blank>{{ bookmark.title }}</a>
                     </td>
                     <td>{{ bookmark.description }}</td>
-                    <td>{{ bookmark.url }}</td>
+                    <td class="hidden-phone">{{ bookmark.url }}</td>
                     <td>
                         <a ng-click="bookmarkBox(bookmark)"><i class="icon-pencil"></i></a>
                         <a ng-click="deleteBookmark(bookmark.id, $index)"><i class="icon-remove"></i></a>
