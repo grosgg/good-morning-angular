@@ -15,6 +15,7 @@ goodMorningAngularApp.controller("MainCtrl", function($scope, $filter, $cookieSt
     // Init bookmarks
     $scope.bookmarks = Bookmark.query({authToken:token});
     $scope.orderBookmarks = 'id';
+    $scope.reverseBookmarks = true;
 
     // Init velibstations
     $scope.velibStations = VelibStation.query({authToken:token});

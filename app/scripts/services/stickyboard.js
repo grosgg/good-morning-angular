@@ -3,7 +3,7 @@
 angular.module('stickyServices', ['ngResource', 'ngCookies'])
 .factory('StickyBoard', function ($resource, $cookieStore) {
     return $resource(
-        backendUrl+'/stickyboards/:stickyId.json?authentication_token=:authToken',
+        backendUrl+'stickyboards/:stickyId.json?authentication_token=:authToken',
         {
             stickyId:1
         },

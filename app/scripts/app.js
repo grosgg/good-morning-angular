@@ -39,19 +39,20 @@ goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
         redirectTo: '/'
     });
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('!');
+    //$locationProvider.html5Mode(true);
 });
 
 goodMorningAngularApp.factory('goodMorningInterceptor', function ($q, $location, $rootScope, $cookieStore) {
     return function (promise) {
 
         var success = function(response) {
-            console.log('promise success');
+            //console.log('promise success');
             return response;
         };
 
         var fail = function(response) {
-            console.log('promise fail');
+            //console.log('promise fail');
             $cookieStore.remove('authToken');
             $rootScope.logged = false;
             $location.path('/');
