@@ -13,7 +13,7 @@ goodMorningAngularApp.controller("BookmarksCtrl", function($scope, $cookieStore,
     var dialogOpts = {
         keyboard: false,
         backdropClick: true,
-        templateUrl: 'views/modals/bookmark_box.html',
+        templateUrl: 'views/bookmark_box.html',
         controller: 'BookmarkBoxCtrl'
     };
 
