@@ -1,9 +1,25 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     padding-top: 60px;
 }
 
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+
+body.night-mode {
+    background: -webkit-linear-gradient( top, black, blue);
+    background:    -moz-linear-gradient( top, black, blue);
+    background:     -ms-linear-gradient( top, black, blue);
+    background:      -o-linear-gradient( top, black, blue);
+    background:         linear-gradient( to bottom, black, blue);
+}
 
 .kuni-label {
     cursor: pointer;
@@ -12,3 +28,5 @@ body {
 textarea#sticky {
     width: 90%;
 }
+
+
