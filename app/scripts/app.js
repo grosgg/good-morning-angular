@@ -73,6 +73,7 @@ goodMorningAngularApp.run(function($rootScope, $cookieStore) {
         $rootScope.logged = false;
     }
 
+    $rootScope.weatherBackground = 'neutral-background';
 });
 
 Date.prototype.getWeek = function() {
