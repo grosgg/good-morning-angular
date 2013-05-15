@@ -8,17 +8,41 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 60px;
+
+    -webkit-transition: background 3s ease-in-out;
+    -moz-transition: background 3s ease-in-out;
+    -ms-transition: background 3s ease-in-out;
+    -o-transition: background 3s ease-in-out;
+    transition: background 3s ease-in-out;
 }
 
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
 
+$night-black: black;
+$night-blue: blue;
+$day-blue: #0099EE;
+$day-lightblue: #77DDFF;
+$haze-blue: #002244;
+$haze-purple: #663344;
+$haze-pink: #EE5566;
+$haze-yellow: #FFCC44;
+
 body.night-mode {
-    background: -webkit-linear-gradient( top, black, blue);
-    background:    -moz-linear-gradient( top, black, blue);
-    background:     -ms-linear-gradient( top, black, blue);
-    background:      -o-linear-gradient( top, black, blue);
-    background:         linear-gradient( to bottom, black, blue);
+    h1 { color: #999999; }
+    background: -webkit-linear-gradient( top, $night-black, $night-blue);
+    background:    -moz-linear-gradient( top, $night-black, $night-blue);
+    background:     -ms-linear-gradient( top, $night-black, $night-blue);
+    background:      -o-linear-gradient( top, $night-black, $night-blue);
+    background:         linear-gradient( to bottom, $night-black, $night-blue);
+}
+
+body.day-mode {
+    background: -webkit-linear-gradient( top, $day-blue, $day-lightblue);
+    background:    -moz-linear-gradient( top, $day-blue, $day-lightblue);
+    background:     -ms-linear-gradient( top, $day-blue, $day-lightblue);
+    background:      -o-linear-gradient( top, $day-blue, $day-lightblue);
+    background:         linear-gradient( to bottom, $day-blue, $day-lightblue);
 }
 
 .kuni-label {
