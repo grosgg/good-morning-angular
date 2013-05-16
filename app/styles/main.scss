@@ -8,12 +8,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 60px;
-
-    -webkit-transition: background 3s ease-in-out;
-    -moz-transition: background 3s ease-in-out;
-    -ms-transition: background 3s ease-in-out;
-    -o-transition: background 3s ease-in-out;
-    transition: background 3s ease-in-out;
 }
 
 @import "compass_twitter_bootstrap";
@@ -28,8 +22,22 @@ $haze-purple: #663344;
 $haze-pink: #EE5566;
 $haze-yellow: #FFCC44;
 
+.kuni-label {
+    cursor: pointer;
+}
+
+textarea#sticky {
+    width: 90%;
+}
+
+/*  Weather  */
+
+div.first-hourly-element {
+    margin-left: 40px;
+}
+
 body.night-mode {
-    h1 { color: #999999; }
+    h1 { color: #CCCCCC; }
     background: -webkit-linear-gradient( top, $night-black, $night-blue);
     background:    -moz-linear-gradient( top, $night-black, $night-blue);
     background:     -ms-linear-gradient( top, $night-black, $night-blue);
@@ -44,13 +52,3 @@ body.day-mode {
     background:      -o-linear-gradient( top, $day-blue, $day-lightblue);
     background:         linear-gradient( to bottom, $day-blue, $day-lightblue);
 }
-
-.kuni-label {
-    cursor: pointer;
-}
-
-textarea#sticky {
-    width: 90%;
-}
-
-
