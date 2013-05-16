@@ -4,11 +4,12 @@ angular.module('weatherreportServices', ['ngResource'])
 .factory('WeatherReport', function ($resource) {
 
     return $resource(
-        backendUrl+'weatherreports.json?authentication_token=:authToken',
+        backendUrl+'weatherreports/:action.json?authentication_token=:authToken',
         {
         },
         {
-            'query': {method:'GET', params:{}, isArray:false}
+            'home': {method:'GET', params:{action: 'home'}, isArray:false},
+            'full': {method:'GET', params:{action: 'full'}, isArray:false}
         }
     );
 });
