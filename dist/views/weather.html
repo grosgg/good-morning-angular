@@ -5,12 +5,25 @@
             <div class="span12">
                 <div class="well clearfix">
                     <h4>Next hours</h4>
-                    <div ng-repeat="hour in hourly" class="pull-left" style="margin-right:40px" ng-class="{'first-hourly-element': $index==0}">
-                        <h5 class="text-center">{{ hour.FCTTIME.hour_padded }}:00</h5>
-                        <img ng-src="{{ hour.icon_url }}">
-                        <h5 class="text-center">{{ hour.temp.metric }}°C</h5>
-                        <p class="text-info text-center">{{ hour.pop }}%</p>
-                    </div>
+                    <ul class="inline hidden-phone">
+                        <li ng-repeat="hour in hourly" class="pull-left hourly-element">
+                            <p><i class="icon-time"></i> {{ hour.FCTTIME.hour_padded }}:00</p>
+                            <img ng-src="{{ hour.icon_url }}">
+                            <p><i class="icon-fire"></i> {{ hour.temp.metric }}°C
+                                <br><i class="icon-tint"></i> {{ hour.pop }}%
+                            </p>
+                        </li>
+                    </ul>
+                    <table class="table visible-phone">
+                        <tbody>
+                            <tr ng-repeat="hour in hourly">
+                                <td>{{ hour.FCTTIME.hour_padded }}:00</td>
+                                <td>{{ hour.condition }}</td>
+                                <td><i class="icon-fire"></i>{{ hour.temp.metric }}°C</td>
+                                <td><i class="icon-tint"></i> {{ hour.pop }}%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -21,7 +34,7 @@
                     <div class="pull-left" style="margin-right:20px">
                         <img ng-src="{{ day.icon_url }}" style="align:center">
                     </div>
-                    <p><strong>{{ day.conditions }}</strong> <span class="text-info"><i class="icon-leaf"></i> {{ day.pop }}%</span></p>
+                    <p><strong>{{ day.conditions }}</strong> <i class="icon-tint"></i> {{ day.pop }}%</p>
                     <p>Low: <strong>{{ day.low.celsius }}°C</strong> - High: <strong>{{ day.high.celsius }}°C</strong></p>
                 </div>
             </div>

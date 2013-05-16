@@ -32,7 +32,10 @@ textarea#sticky {
 
 /*  Weather  */
 
-div.first-hourly-element {
+li.hourly-element {
+    margin-right: 25px;
+}
+li.hourly-element:first-child {
     margin-left: 40px;
 }
 
