@@ -1,5 +1,6 @@
 <div class="modal-header">
-    <h1>New Bookmark</h1>
+    <h1 ng-hide="item">New Bookmark</h1>
+    <h1 ng-show="item">Edit Bookmark</h1>
 </div>
 <div class="modal-body">
     <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
