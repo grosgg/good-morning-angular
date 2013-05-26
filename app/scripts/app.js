@@ -4,7 +4,7 @@ var goodMorningAngularApp = angular.module('goodMorningAngularApp', [
     'ui.bootstrap',
     'ngCookies', 'authServices',
     'stickyServices', 'bookmarkServices',
-    'velibstationServices',
+    'velibstationServices', 'newsstreamServices',
     'weatherreportServices', 'kunidayServices',
     'kunidayFilters'
 ]);
