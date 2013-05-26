@@ -35,6 +35,10 @@ goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'views/bookmarks.html',
         controller: 'BookmarksCtrl'
     })
+    .when('/preferences', {
+        templateUrl: 'views/preferences.html',
+        controller: 'PreferencesCtrl'
+    })
     .otherwise({
         redirectTo: '/'
     });
