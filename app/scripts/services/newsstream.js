@@ -8,4 +8,13 @@ angular.module('newsstreamServices', ['ngResource'])
         {},
         {}
     );
+})
+
+
+.factory('NewsStreamSingle', function ($resource) {
+    return $resource(
+        backendUrl+'newsstreams/:id.json?authentication_token=:authToken',
+        {},
+        {}
+    );
 });
