@@ -28,8 +28,8 @@ goodMorningAngularApp.config(function ($routeProvider, $locationProvider) {
         controller: 'KunidaysCtrl'
     })
     .when('/news', {
-        templateUrl: 'views/news.html',
-        controller: 'NewsCtrl'
+        templateUrl: 'views/newsstreams.html',
+        controller: 'NewsStreamCtrl'
     })
     .when('/bookmarks', {
         templateUrl: 'views/bookmarks.html',

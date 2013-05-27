@@ -6,7 +6,9 @@ angular.module('newsstreamServices', ['ngResource'])
     return $resource(
         backendUrl+'newsstreams.json?authentication_token=:authToken',
         {},
-        {}
+        {
+            'create': {method:'POST'}
+        }
     );
 })
 
@@ -15,6 +17,8 @@ angular.module('newsstreamServices', ['ngResource'])
     return $resource(
         backendUrl+'newsstreams/:id.json?authentication_token=:authToken',
         {},
-        {}
+        {
+            'update': {method:'PUT'}
+        }
     );
 });
