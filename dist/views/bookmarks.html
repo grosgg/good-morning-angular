@@ -9,6 +9,8 @@
             </div>
         </form>
 
+        <p ng-hide="bookmarks.length > 0">You do not have any bookmark yet...</p>
+
         <table class="table table-striped">
             <tbody>
                 <tr ng-repeat="bookmark in bookmarks | filter:searchBookmarks | orderBy:orderBookmarks:reverseBookmarks | limitTo:50">

@@ -1,6 +1,6 @@
 <div class="modal-header">
-    <h1 ng-hide="item">New Bookmark</h1>
-    <h1 ng-show="item">Edit Bookmark</h1>
+    <h1 ng-hide="item">Add News Stream</h1>
+    <h1 ng-show="item">Edit News Stream</h1>
 </div>
 <div class="modal-body">
     <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
@@ -8,19 +8,13 @@
         <div class="control-group">
             <label class="control-label" for="inputTitle">Title</label>
             <div class="controls">
-                <input ng-model="item.title" type="text" id="inputTitle" placeholder="My New Bookmark">
+                <input ng-model="item.title" type="text" id="inputTitle" placeholder="News Stream Title">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="inputUrl">URL</label>
             <div class="controls">
-                <input ng-model="item.url" type="text" id="inputURL" placeholder="http://www.example.com">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputDescription">Description</label>
-            <div class="controls">
-                <input ng-model="item.description" type="text" id="inputDescription" placeholder="A great website">
+                <input ng-model="item.url" type="text" id="inputURL" placeholder="http://feedurl.xml">
             </div>
         </div>
     </form>
