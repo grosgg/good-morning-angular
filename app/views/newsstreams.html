@@ -1,6 +1,10 @@
 <div class="row-fluid">
     <div class="span12">
         <h1>News</h1>
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+
+        <p ng-hide="newsStreams.length > 0">You do not have any news stream yet...</p>
+
         <div ng-repeat="newsStream in newsStreams" class="well clearfix">
             <h3>{{ newsStream.stream.title }}</h3>
             <ul>

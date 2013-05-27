@@ -30,10 +30,10 @@ goodMorningAngularApp.controller("NewsStreamCtrl", function($scope, $cookieStore
                 //console.log(result);
                 if (result.created_at == result.updated_at) {
                     $scope.newsStreams = NewsStream.query({authToken:token});
-                    $scope.alerts.push({type: 'success', msg: "News Stream successfully added."});
+                    $scope.alerts.push({type: 'success', msg: "News stream successfully added."});
                 } else {
                     angular.copy(result, itemToEdit);
-                    $scope.alerts.push({type: 'success', msg: "News Stream successfully updated."});
+                    $scope.alerts.push({type: 'success', msg: "News stream successfully updated."});
                 }
             }
             itemToEdit = undefined;
@@ -41,9 +41,16 @@ goodMorningAngularApp.controller("NewsStreamCtrl", function($scope, $cookieStore
     };
 
     $scope.removeStream = function(streamId){
-        token = $cookieStore.get('authToken');
-        var response = NewsStreamSingle.remove({authToken:token, id:streamId});
-        $scope.news = NewsStream.query({authToken:token});
+        NewsStreamSingle.remove(
+            {authToken:token, id:streamId},
+            function(id) {
+                $scope.alerts.push({type: 'success', msg: "News stream successfully deleted."});
+                $scope.newsStreams = NewsStream.query({authToken:token});
+            },
+            function() {
+                $scope.alerts.push({type: 'error', msg: "News stream not deleted!"});
+            }
+        );
     }
 
 });
@@ -64,7 +71,7 @@ goodMorningAngularApp.controller("NewsStreamBoxCtrl", function($scope, $cookieSt
                     dialog.close(response);
                 },
                 function() {
-                    $scope.alerts.push({type: 'error', msg: "News Stream not added!"});
+                    $scope.alerts.push({type: 'error', msg: "News stream not added!"});
                 }
             );
         } else {
@@ -75,7 +82,7 @@ goodMorningAngularApp.controller("NewsStreamBoxCtrl", function($scope, $cookieSt
                     dialog.close($scope.item);
                 },
                 function() {
-                    $scope.alerts.push({type: 'error', msg: "News Stream not updated!"});
+                    $scope.alerts.push({type: 'error', msg: "News stream not updated!"});
                 }
             );
         }
