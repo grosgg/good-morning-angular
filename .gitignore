@@ -4,4 +4,4 @@ node_modules
 .sass-cache
 app/components
 *.swp
-app/scripts/config.js
+#app/scripts/config.js
