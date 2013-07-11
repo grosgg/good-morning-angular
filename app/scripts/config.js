@@ -1,4 +1,4 @@
-url = window.document.URL;
+var url = window.document.URL;
 if (url.indexOf('localhost:9000') != -1 || url.indexOf('localhost:8080') != -1) {
     backendUrl = 'http://localhost\\:3000/';
     usernamePrefill = 'demo@sabu.fr';
