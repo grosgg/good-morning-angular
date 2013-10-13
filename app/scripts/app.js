@@ -2,6 +2,7 @@
 
 var goodMorningAngularApp = angular.module('goodMorningAngularApp', [
     'ui.bootstrap',
+    'angulartics', 'angulartics.google.analytics',
     'ngCookies', 'authServices',
     'stickyServices', 'bookmarkServices',
     'velibstationServices', 'newsstreamServices',
